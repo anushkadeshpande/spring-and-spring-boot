@@ -28,7 +28,6 @@ public class HelloControllerMockMVCTest {
            .andExpect(status().isOk())
            .andExpect(view().name("hello"))
            .andExpect(model().attribute("user", "world"));
-
     }
 
     @Test
