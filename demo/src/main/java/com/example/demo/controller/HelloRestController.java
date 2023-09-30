@@ -10,7 +10,7 @@ import com.example.demo.json.Greeting;
 public class HelloRestController {
 
     @GetMapping("/rest")
-    public Greeting greet(@RequestParam(defaultValue = "anna") String name) {
+    public Greeting greet(@RequestParam(defaultValue = "World") String name) {
         return new Greeting("Hello " + name);
     }
 }
