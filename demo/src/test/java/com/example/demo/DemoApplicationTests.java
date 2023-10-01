@@ -1,9 +1,14 @@
 package com.example.demo;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
+
+import com.example.demo.json.Greeting;
 
 @SpringBootTest
 class DemoApplicationTests {
@@ -17,6 +22,12 @@ class DemoApplicationTests {
 
 		for(String name: context.getBeanDefinitionNames())
 			System.out.println(name);
+	}
+
+	@Test
+	void noGreetingInAppCtx() {
+		System.out.println("NO BEAN FOUND!");
+		assertThrows(NoSuchBeanDefinitionException.class, () -> context.getBean(Greeting.class));
 	}
 
 }
