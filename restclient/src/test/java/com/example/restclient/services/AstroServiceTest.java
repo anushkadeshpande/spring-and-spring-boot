@@ -41,5 +41,12 @@ public class AstroServiceTest {
         assertEquals("success", response.getBody().getMessage());
     }
 
+    @Test
+    void testGetAstroResponseRestTemplate() {
+        var response = service.getAstroResponse();
+        System.out.println(response);
+        assertEquals("success", response.getMessage()); 
+    }
+
     
 }
