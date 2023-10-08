@@ -1,9 +1,26 @@
 package com.example.persistence.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "officers")
 public class Officer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Enumerated(EnumType.STRING)
     private Rank rank;
+
     private String firstName;
+    
     private String lastName;
 
     // default constructor is required for jpa, not for jdbc
