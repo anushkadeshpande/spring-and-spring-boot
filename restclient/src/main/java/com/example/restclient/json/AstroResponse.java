@@ -1,4 +1,4 @@
-package com.example.json;
+package com.example.restclient.json;
 
 import java.util.List;
 

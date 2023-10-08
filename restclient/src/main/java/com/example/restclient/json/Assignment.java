@@ -1,4 +1,4 @@
-package com.example.json;
+package com.example.restclient.json;
 
 public class Assignment {
     private String name;
