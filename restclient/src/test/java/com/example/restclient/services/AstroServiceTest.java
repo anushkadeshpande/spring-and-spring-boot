@@ -1,5 +1,6 @@
 package com.example.restclient.services;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -18,4 +19,13 @@ public class AstroServiceTest {
         System.out.println(json);
         assertTrue(json.contains("success"));
     }
+
+    @Test
+    void testGetAstroResponse() {
+        var response = service.getAstroResponse();
+        System.out.println(response);
+        assertEquals("success", response.getMessage());        
+    }
+
+    
 }
