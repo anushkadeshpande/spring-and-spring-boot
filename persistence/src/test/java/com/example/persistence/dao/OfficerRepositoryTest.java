@@ -11,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.persistence.entities.Officer;
 
+import jakarta.transaction.Transactional;
+
 @SpringBootTest
 public class OfficerRepositoryTest {
     @Autowired
@@ -28,5 +30,13 @@ public class OfficerRepositoryTest {
         Optional<Officer> officer = repository.findById(1);
         System.out.println(officer);
         assertTrue(officer.isPresent());
+    }
+
+    // in a test @Transactional rolls back the transaction automatically
+    @Test
+    @Transactional
+    void deleteAll() {
+        repository.deleteAll();
+        assertEquals(0, repository.count());
     }
 }
