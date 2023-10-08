@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "RestclientApplication",
+            "request": "launch",
+            "mainClass": "com.example.restclient.RestclientApplication",
+            "projectName": "restclient"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-DemoApplication<demo>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
