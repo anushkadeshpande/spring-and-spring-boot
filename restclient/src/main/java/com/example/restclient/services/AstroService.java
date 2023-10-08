@@ -1,4 +1,6 @@
-package com.example.services;
+package com.example.restclient.services;
+
+import java.time.Duration;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
@@ -14,5 +16,13 @@ public class AstroService {
 
     public AstroService(RestTemplateBuilder builder)  {
         template = builder.build();
+    }
+
+    public String getAstronauts() {
+        return client.get()
+                .uri("/astros.json")
+                .retrieve()
+                .bodyToMono(String.class)
+                .block(Duration.ofSeconds(2));
     }
 }
