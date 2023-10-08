@@ -22,6 +22,10 @@ public class AstroService {
         template = builder.build();
     }
 
+    public AstroResponse getAstroResponseRestTemplate() {
+        return template.getForObject("http://api.open-notify.org/astros.json", AstroResponse.class);
+    }
+
     public String getAstronauts() {
         return client.get()
                 .uri("/astros.json")
