@@ -33,7 +33,7 @@ public class AstroServiceTest {
     void testGetAstroResponse() {
         var response = service.getAstroResponse();
         log.info(response.toString());
-        assertEquals("success", response.getMessage());        
+        assertEquals("success", response.message());        
     }
 
     @Test
@@ -42,14 +42,14 @@ public class AstroServiceTest {
         log.info(response.toString());
         assertNotNull(response.getBody());
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals("success", response.getBody().getMessage());
+        assertEquals("success", response.getBody().message());
     }
 
     @Test
     void testGetAstroResponseRestTemplate() {
         var response = service.getAstroResponse();
         log.info(response.toString());
-        assertEquals("success", response.getMessage()); 
+        assertEquals("success", response.message()); 
     }
 
     

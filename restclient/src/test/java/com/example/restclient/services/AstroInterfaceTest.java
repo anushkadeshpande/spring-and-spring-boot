@@ -22,6 +22,6 @@ public class AstroInterfaceTest {
     void testGetAstroResponse() {
         AstroResponse response = service.getAstroResponse();
         log.info(response.toString());
-        assertEquals("success", response.getMessage());
+        assertEquals("success", response.message());
     }
 }

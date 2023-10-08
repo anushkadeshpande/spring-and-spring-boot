@@ -30,7 +30,7 @@ public class AstroService {
         return client.get()
                 .uri("/astros.json")
                 .retrieve()
-                .bodyToMono(String.class)
+                .bodyToMono(String.class)  // take the response body and convert to Mono
                 .block(Duration.ofSeconds(2));
     }
 
