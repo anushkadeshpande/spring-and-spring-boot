@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ShoppingApplication",
+            "request": "launch",
+            "mainClass": "com.example.shopping.ShoppingApplication",
+            "projectName": "shopping"
+        },
+        {
+            "type": "java",
             "name": "PersistenceApplication",
             "request": "launch",
             "mainClass": "com.example.persistence.PersistenceApplication",
