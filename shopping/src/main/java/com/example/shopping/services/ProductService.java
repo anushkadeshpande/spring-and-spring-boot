@@ -2,6 +2,7 @@ package com.example.shopping.services;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,10 @@ public class ProductService {
     @Transactional(readOnly = true)
     public List<Product> getAllProducts() {
         return productRepository.findAll();
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Product> getProductById(Integer id) {
+        return productRepository.findById(id);
     }
 }
