@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.example.shopping.dao.ProductRepository;
 import com.example.shopping.entities.Product;
+import com.example.shopping.services.ProductService;
 
 @SpringBootApplication
 public class ShoppingApplication {
@@ -20,17 +21,8 @@ public class ShoppingApplication {
 	}
 
 	@Bean
-	public CommandLineRunner appInit(@Autowired ProductRepository repository) {
-		return args -> {
-			List<Product> products = List.of(
-					new Product("A", BigDecimal.valueOf(25.00)),
-					new Product("B", BigDecimal.valueOf(10.00)),
-					new Product("C", BigDecimal.valueOf(15.00))
-
-			);
-			repository.saveAll(products).forEach(System.out::println);
-			;
-		};
+	public CommandLineRunner appInit(@Autowired ProductService service) {
+		return args -> service.initializeDatabase();
 	}
 
 }
