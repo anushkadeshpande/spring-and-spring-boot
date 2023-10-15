@@ -7,6 +7,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 
 @Entity
 public class Product {
@@ -17,6 +19,9 @@ public class Product {
 
     @NotBlank(message = "Name is required")
     private String name;
+
+    @PositiveOrZero(message = "Price must be positive or zero")
+    @NotNull(message = "Price is required")
     private BigDecimal price;
     
     public Integer getId() {
