@@ -5,18 +5,22 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.shopping.dao.ProductRepository;
 import com.example.shopping.entities.Product;
 
-import jakarta.transaction.Transactional;
 
 @Service
 @Transactional
 public class ProductService {
 
+    private final ProductRepository productRepository;
+    
     @Autowired
-    private ProductRepository productRepository;
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public List<Product> initializeDatabase() {
         List<Product> products = List.of(
@@ -24,5 +28,10 @@ public class ProductService {
                 new Product("B", BigDecimal.valueOf(10.00)),
                 new Product("C", BigDecimal.valueOf(15.00)));
         return productRepository.saveAll(products);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
     }
 }
