@@ -15,7 +15,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotBlank
+    @NotBlank(message = "Name is required")
     private String name;
     private BigDecimal price;
     

@@ -22,7 +22,7 @@ public class ProductTest {
         var violations = validator.validate(product);
 
         assertEquals(1, violations.size());        
-        // assertEquals("Name is required", violations.iterator().next().getMessage());
+        assertEquals("Name is required", violations.iterator().next().getMessage());
 
     }
 }
