@@ -24,6 +24,9 @@ public class Product {
     @NotNull(message = "Price is required")
     private BigDecimal price;
     
+    public Product() {
+    }
+    
     public Integer getId() {
         return id;
     }

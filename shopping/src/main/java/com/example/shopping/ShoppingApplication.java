@@ -23,9 +23,9 @@ public class ShoppingApplication {
 	public CommandLineRunner appInit(@Autowired ProductRepository repository) {
 		return args -> {
 			List<Product> products = List.of(
-					new Product("Football", BigDecimal.valueOf(25.00)),
-					new Product("Football", BigDecimal.valueOf(25.00)),
-					new Product("Football", BigDecimal.valueOf(25.00))
+					new Product("A", BigDecimal.valueOf(25.00)),
+					new Product("B", BigDecimal.valueOf(10.00)),
+					new Product("C", BigDecimal.valueOf(15.00))
 
 			);
 			repository.saveAll(products).forEach(System.out::println);
