@@ -1,10 +1,13 @@
 package com.example.shopping.controllers;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
@@ -19,8 +22,17 @@ public class ProductControllerFunctionalTest {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @LocalServerPort
+    int port;
+
     private List<Integer> getIds() {
         return jdbcTemplate.queryForList("SELECT id FROM product", Integer.class);
+    }
+
+    @Test
+    void printPort() {
+        assertNotNull(port);
+        System.out.println("APPLICATION IS RUNNING ON PORT: "+ port);
     }
 
     @Test
