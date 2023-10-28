@@ -2,6 +2,7 @@ package com.example.shopping.controllers;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -54,5 +55,29 @@ public class ProductControllerFunctionalTest {
                 .isOk()
                 .expectBody(Product.class)
                 .consumeWith(System.out::println));
+    }
+
+    @Test
+    void testGetProductById_forNonExistentProduct() {
+        client.get()
+                .uri("/products/{id}", 999)
+                .exchange()
+                .expectStatus()
+                .isNotFound()
+                .expectBody()
+                .isEmpty();
+    }
+
+    @Test
+    void testIsProductAdded() {
+        Product product = new Product("D", BigDecimal.valueOf(29.00));
+
+        client.post()
+        .uri("/products")
+        .bodyValue(product)
+        .exchange()
+        .expectStatus().isOk()
+        .expectBody(Product.class)
+        .consumeWith(System.out::println);
     }
 }
